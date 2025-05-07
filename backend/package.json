@@ -1,0 +1,23 @@
+{
+  "name": "benbotdegilimbotu-backend",
+  "version": "1.0.0",
+  "description": "BenBotDegilim Discord Bot Backend",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "dependencies": {
+    "discord.js": "^14.14.1",
+    "express": "^4.18.2",
+    "dotenv": "^16.4.1",
+    "cors": "^2.8.5",
+    "@discordjs/voice": "^0.16.1",
+    "play-dl": "^1.9.7",
+    "sodium": "^3.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  }
+} 
