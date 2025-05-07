@@ -11,9 +11,8 @@ import { FaDiscord } from 'react-icons/fa'
 
 const Login = () => {
   const handleDiscordLogin = () => {
-    // Discord OAuth2 URL'sini buraya ekleyin
-    const clientId = 'YOUR_CLIENT_ID'
-    const redirectUri = 'http://localhost:5173/callback'
+    const clientId = '562958427404632075'
+    const redirectUri = window.location.origin + '/callback'
     const scope = 'identify guilds'
     const discordUrl = `https://discord.com/api/oauth2/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(
       redirectUri
