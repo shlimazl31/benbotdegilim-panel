@@ -4,22 +4,16 @@ import react from '@vitejs/plugin-react-swc'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
+  base: '/',
   build: {
     outDir: 'dist',
-    sourcemap: true,
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom', 'react-router-dom'],
-        },
-      },
-    },
+    assetsDir: 'assets',
+    sourcemap: true
   },
   server: {
     port: 5173,
-    host: true,
+    host: true
   },
-  base: '/',
   resolve: {
     alias: {
       '@': '/src',
