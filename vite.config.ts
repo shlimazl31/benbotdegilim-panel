@@ -7,6 +7,13 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     sourcemap: true,
+    rollupOptions: {
+      input: {
+        main: 'index.html',
+        terms: 'terms.html',
+        privacy: 'privacy.html'
+      }
+    }
   },
   server: {
     port: 5173,
