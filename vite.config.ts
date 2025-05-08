@@ -12,4 +12,10 @@ export default defineConfig({
     port: 5173,
     host: true,
   },
+  base: '/',
+  resolve: {
+    alias: {
+      '@': '/src',
+    },
+  },
 })

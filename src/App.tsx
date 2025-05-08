@@ -15,9 +15,9 @@ function App() {
   return (
     <ChakraProvider theme={theme}>
       <Router>
-        <Box minH="100vh" bg="background">
+        <Box minH="100vh" bg="background" color="text">
           {/* <Navbar /> */}
-          <Box as="main" p={4}>
+          <Box as="main">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/dashboard" element={<Dashboard />} />
