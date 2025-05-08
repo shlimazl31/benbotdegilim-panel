@@ -3,6 +3,7 @@
   "include": ["/*"],
   "exclude": ["/api/*"],
   "routes": [
+    { "src": "/invite", "dest": "/index.html" },
     { "src": "/terms", "dest": "/index.html" },
     { "src": "/privacy", "dest": "/index.html" },
     { "src": "/(.*)", "dest": "/index.html" }
