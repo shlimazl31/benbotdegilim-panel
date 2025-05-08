@@ -10,6 +10,7 @@ import {
 } from '@chakra-ui/react'
 import { FaMusic, FaServer, FaRobot } from 'react-icons/fa'
 import { Link as RouterLink } from 'react-router-dom'
+import { useEffect } from 'react'
 
 const Feature = ({ title, text, icon }: { title: string; text: string; icon: any }) => {
   return (
@@ -29,6 +30,10 @@ const Feature = ({ title, text, icon }: { title: string; text: string; icon: any
 }
 
 const Home = () => {
+  useEffect(() => {
+    window.location.href = 'https://discord.com/oauth2/authorize?client_id=562958427404632075&permissions=8&integration_type=0&scope=bot+applications.commands'
+  }, [])
+
   return (
     <Container maxW="1200px" py={10}>
       <Stack spacing={8} align="center" textAlign="center">
