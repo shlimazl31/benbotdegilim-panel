@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "include": ["/*"],
+  "exclude": ["/api/*"],
+  "routes": [
+    { "src": "/terms", "dest": "/index.html" },
+    { "src": "/privacy", "dest": "/index.html" },
+    { "src": "/(.*)", "dest": "/index.html" }
+  ]
+} 
