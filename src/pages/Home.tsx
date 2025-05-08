@@ -40,6 +40,11 @@ const features = [
     icon: FaRobot,
     title: 'Akıllı ve Hızlı',
     desc: 'Modern altyapı, hızlı yanıt ve 7/24 aktif.'
+  },
+  {
+    icon: FaPlus,
+    title: 'Açık Kaynak & GitHub',
+    desc: (<a href="https://github.com/shlimazl31/benbotdegilimbotu" target="_blank" rel="noopener noreferrer" style={{ color: '#7f1fff', textDecoration: 'underline' }}>Kaynak Kodu</a>)
   }
 ]
 
@@ -139,7 +144,7 @@ const Home = () => {
             bgGradient="linear(to-r, brand.400, brand.600)"
             bgClip="text"
           >
-            BenBotDegilim: Modern Discord Müzik Botu
+            Shlimazlbot: Modern Discord Müzik Botu
           </Heading>
           <Text fontSize="xl" color="muted" maxW="2xl">
             Sunucunda yüksek kaliteli müzik, playlist yönetimi, film komutları ve daha fazlası! Açık kaynak, hızlı ve tamamen ücretsiz.
@@ -167,7 +172,11 @@ const Home = () => {
             <Box key={i} p={6} bg="background" rounded="xl" shadow="lg" textAlign="center" border="1px solid" borderColor="brand.900">
               <Icon as={f.icon} w={10} h={10} color="brand.500" mb={4} />
               <Text fontWeight={600} fontSize="xl" mb={2}>{f.title}</Text>
-              <Text color="muted">{f.desc}</Text>
+              {typeof f.desc === 'string' ? (
+                <Text color="muted">{f.desc}</Text>
+              ) : (
+                <Text color="muted">{f.desc}</Text>
+              )}
             </Box>
           ))}
         </SimpleGrid>
