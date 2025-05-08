@@ -12,7 +12,7 @@ import {
   ListIcon,
   useBreakpointValue
 } from '@chakra-ui/react'
-import { FaMusic, FaServer, FaRobot, FaListUl, FaFilm, FaShieldAlt, FaCheckCircle, FaPlus } from 'react-icons/fa'
+import { FaMusic, FaRobot, FaListUl, FaFilm, FaShieldAlt, FaCheckCircle, FaPlus } from 'react-icons/fa'
 import { Link as RouterLink } from 'react-router-dom'
 
 const features = [
