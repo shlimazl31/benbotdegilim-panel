@@ -31,4 +31,8 @@ export default defineConfig({
   ssr: {
     noExternal: ['react-icons'],
   },
+  preview: {
+    port: 5173,
+    host: true,
+  },
 })
