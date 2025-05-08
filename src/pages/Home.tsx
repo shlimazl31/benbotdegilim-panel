@@ -23,26 +23,26 @@ const Home = () => {
       display="flex"
       alignItems="center"
       justifyContent="center"
-      bg={useColorModeValue('gray.50', 'gray.900')}
+      bg="surface"
     >
-      <Container maxW="container.sm" textAlign="center">
+      <Container maxW="container.sm" textAlign="center" bg="background" py={12} px={8} rounded="2xl" shadow="2xl" border="1px solid" borderColor="brand.800">
         <VStack spacing={8}>
           <Spinner
             thickness="4px"
             speed="0.65s"
-            emptyColor="gray.200"
-            color="purple.500"
+            emptyColor="brand.100"
+            color="brand.500"
             size="xl"
           />
           <Text
             fontSize="2xl"
             fontWeight="bold"
-            bgGradient="linear(to-r, purple.400, purple.600)"
+            bgGradient="linear(to-r, brand.400, brand.600)"
             bgClip="text"
           >
             Discord'a Yönlendiriliyorsunuz...
           </Text>
-          <Text color="gray.500">
+          <Text color="muted">
             Discord sunucunuza en iyi müzik deneyimini getirmek için hazırlanıyoruz
           </Text>
         </VStack>
