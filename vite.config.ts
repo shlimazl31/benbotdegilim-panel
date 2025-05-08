@@ -19,10 +19,16 @@ export default defineConfig({
     port: 5173,
     host: true,
   },
-  base: '/',
+  base: './',
   resolve: {
     alias: {
       '@': '/src',
     },
+  },
+  optimizeDeps: {
+    include: ['react', 'react-dom', 'react-router-dom'],
+  },
+  ssr: {
+    noExternal: ['react-icons'],
   },
 })
