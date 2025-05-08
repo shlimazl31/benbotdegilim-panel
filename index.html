@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="tr">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
@@ -10,5 +10,11 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      // Sayfa yenilendiğinde yönlendirmeyi düzelt
+      if (window.location.pathname !== '/') {
+        window.history.replaceState(null, '', window.location.pathname);
+      }
+    </script>
   </body>
 </html>
