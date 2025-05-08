@@ -7,16 +7,47 @@ const Callback = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    const token = searchParams.get('token')
-    if (token) {
-      // Token'ı localStorage'a kaydet
-      localStorage.setItem('discord_token', token)
-      // Dashboard'a yönlendir
-      navigate('/dashboard')
-    } else {
-      // Token yoksa login sayfasına yönlendir
+    const code = searchParams.get('code')
+    
+    if (!code) {
       navigate('/login')
+      return
     }
+
+    const handleCallback = async () => {
+      try {
+        const tokenResponse = await fetch('https://discord.com/api/oauth2/token', {
+          method: 'POST',
+          body: new URLSearchParams({
+            client_id: import.meta.env.VITE_DISCORD_CLIENT_ID,
+            client_secret: import.meta.env.VITE_DISCORD_CLIENT_SECRET,
+            grant_type: 'authorization_code',
+            code: code,
+            redirect_uri: 'https://benbotdegilim.online/callback'
+          }),
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        })
+
+        const tokens = await tokenResponse.json()
+
+        if (!tokenResponse.ok) {
+          throw new Error(tokens.error)
+        }
+
+        // Token'ı localStorage'a kaydet
+        localStorage.setItem('discord_token', tokens.access_token)
+        
+        // Dashboard'a yönlendir
+        navigate('/dashboard')
+      } catch (error) {
+        console.error('OAuth error:', error)
+        navigate('/login')
+      }
+    }
+
+    handleCallback()
   }, [searchParams, navigate])
 
   return (
