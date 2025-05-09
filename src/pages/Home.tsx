@@ -12,6 +12,7 @@ import {
 } from '@chakra-ui/react'
 import { FaDiscord, FaGithub, FaServer, FaClock, FaCircle } from 'react-icons/fa'
 import { useBotStatus } from '../hooks/useBotStatus'
+import { Link as RouterLink } from 'react-router-dom'
 
 const Home = () => {
   const bgColor = useColorModeValue('gray.50', 'gray.900')
@@ -57,10 +58,8 @@ const Home = () => {
               leftIcon={<FaDiscord />}
               colorScheme="purple"
               size="lg"
-              as="a"
-              href="/invite"
-              target="_blank"
-              rel="noopener noreferrer"
+              as={RouterLink}
+              to="/invite"
             >
               Botu Ekle
             </Button>
