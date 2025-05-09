@@ -10,10 +10,17 @@ import {
   List,
   ListItem,
   ListIcon,
-  useBreakpointValue
+  useBreakpointValue,
+  HStack,
+  Image,
+  useColorModeValue,
+  Skeleton,
+  Grid,
+  GridItem,
 } from '@chakra-ui/react'
-import { FaMusic, FaRobot, FaListUl, FaFilm, FaShieldAlt, FaCheckCircle, FaPlus } from 'react-icons/fa'
+import { FaMusic, FaRobot, FaListUl, FaFilm, FaShieldAlt, FaCheckCircle, FaPlus, FaDiscord, FaGithub, FaServer, FaClock, FaCircle } from 'react-icons/fa'
 import { Link as RouterLink } from 'react-router-dom'
+import { useBotStatus } from '../hooks/useBotStatus'
 
 const features = [
   {
@@ -133,77 +140,173 @@ const commandCategories = [
 ]
 
 const Home = () => {
-  const gridColumns = useBreakpointValue({ base: 1, md: 2, lg: 3 })
+  const bgColor = useColorModeValue('gray.50', 'gray.900')
+  const textColor = useColorModeValue('gray.600', 'gray.400')
+  const { status, loading, error } = useBotStatus()
+
+  console.log('Home sayfası status:', status)
+
+  const formatUptime = (uptime: number) => {
+    // İlk 5 basamak saniye, son 3 basamak salise
+    const seconds = Math.floor(uptime / 1000)
+    const milliseconds = uptime % 1000
+
+    const days = Math.floor(seconds / (24 * 60 * 60))
+    const hours = Math.floor((seconds % (24 * 60 * 60)) / (60 * 60))
+    const minutes = Math.floor((seconds % (60 * 60)) / 60)
+    
+    const parts = []
+    if (days > 0) parts.push(`${days} gün`)
+    if (hours > 0) parts.push(`${hours} saat`)
+    if (minutes > 0) parts.push(`${minutes} dakika`)
+    
+    return parts.join(' ') || '0 dakika'
+  }
 
   return (
-    <Box minH="100vh" bg="surface" py={10}>
-      <Container maxW="6xl">
-        <VStack spacing={10} align="center" textAlign="center">
+    <Box bg={bgColor} minH="100vh" pt="80px">
+      {/* Hero Section */}
+      <Container maxW="container.xl" py={20}>
+        <VStack spacing={8} textAlign="center">
           <Heading
-            fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
-            bgGradient="linear(to-r, brand.400, brand.600)"
+            as="h1"
+            size="2xl"
+            bgGradient="linear(to-r, purple.400, pink.400)"
             bgClip="text"
+            fontWeight="extrabold"
           >
-            Shlimazlbot: Modern Discord Müzik Botu
+            Shlimazlbot
           </Heading>
-          <Text fontSize="xl" color="muted" maxW="2xl">
-            Sunucunda yüksek kaliteli müzik, playlist yönetimi, film komutları ve daha fazlası! Açık kaynak, hızlı ve tamamen ücretsiz.
+          <Text fontSize="xl" color={textColor} maxW="2xl">
+            Discord sunucunuz için en iyi müzik deneyimi. Yüksek kaliteli ses, kolay kullanım ve ücretsiz!
           </Text>
-          <Button
-            as={RouterLink}
-            to="/invite"
-            size="lg"
-            leftIcon={<FaPlus />}
-            colorScheme="brand"
-            px={8}
-            fontSize="lg"
-            variant="solid"
-            shadow="md"
-          >
-            Beni Sunucuna Ekle
-          </Button>
-        </VStack>
-
-        <Heading mt={16} mb={6} size="lg" color="brand.400" textAlign="center">
-          Özellikler
-        </Heading>
-        <SimpleGrid columns={gridColumns} spacing={8} mb={16}>
-          {features.map((f, i) => (
-            <Box key={i} p={6} bg="background" rounded="xl" shadow="lg" textAlign="center" border="1px solid" borderColor="brand.900">
-              <Icon as={f.icon} w={10} h={10} color="brand.500" mb={4} />
-              <Text fontWeight={600} fontSize="xl" mb={2}>{f.title}</Text>
-              {typeof f.desc === 'string' ? (
-                <Text color="muted">{f.desc}</Text>
-              ) : (
-                <Text color="muted">{f.desc}</Text>
-              )}
-            </Box>
-          ))}
-        </SimpleGrid>
-
-        <Heading mb={6} size="md" color="brand.400" textAlign="center">
-          Komutlar
-        </Heading>
-        <VStack spacing={8} align="stretch" mb={8}>
-          {commandCategories.map((cat, i) => (
-            <Box key={i} bg="background" rounded="xl" shadow="md" p={6} border="1px solid" borderColor="brand.900">
-              <Heading size="md" mb={3} color="brand.400" display="flex" alignItems="center">
-                <span style={{ fontSize: 24, marginRight: 8 }}>{cat.emoji}</span> {cat.title}
-              </Heading>
-              <List spacing={2}>
-                {cat.commands.map((c, j) => (
-                  <ListItem key={j}>
-                    <ListIcon as={FaCheckCircle} color="brand.400" />
-                    <b>{c.cmd}</b> — {c.desc}
-                  </ListItem>
-                ))}
-              </List>
-            </Box>
-          ))}
+          <HStack spacing={4}>
+            <Button
+              leftIcon={<FaDiscord />}
+              colorScheme="purple"
+              size="lg"
+              as="a"
+              href="https://benbotdegilim.online/invite"
+              target="_blank"
+            >
+              Botu Ekle
+            </Button>
+            <Button
+              leftIcon={<FaGithub />}
+              variant="outline"
+              size="lg"
+              as="a"
+              href="https://github.com/shlimazl31/benbotdegilimbotu/"
+              target="_blank"
+            >
+              GitHub
+            </Button>
+          </HStack>
         </VStack>
       </Container>
+
+      {/* Features Section */}
+      <Box py={20} bg={useColorModeValue('white', 'gray.800')}>
+        <Container maxW="container.xl">
+          <VStack spacing={12}>
+            <Heading textAlign="center">Özellikler</Heading>
+            <HStack spacing={8} wrap="wrap" justify="center">
+              <FeatureCard
+                title="Yüksek Kalite"
+                description="En yüksek ses kalitesi ile müzik keyfi"
+                icon="🎵"
+              />
+              <FeatureCard
+                title="Kolay Kullanım"
+                description="Basit komutlar ile hızlı kontrol"
+                icon="🎮"
+              />
+              <FeatureCard
+                title="Ücretsiz"
+                description="Tüm özellikler tamamen ücretsiz"
+                icon="💎"
+              />
+            </HStack>
+          </VStack>
+        </Container>
+      </Box>
+
+      {/* Stats Section */}
+      <Box py={20} bg={bgColor}>
+        <Container maxW="container.xl">
+          <VStack spacing={4}>
+            {error && (
+              <Text color="red.500" fontSize="sm">
+                Hata: {error}
+              </Text>
+            )}
+            <Grid templateColumns="repeat(3, 1fr)" gap={6}>
+              <GridItem>
+                <StatCard
+                  title="Aktif Sunucu"
+                  value={status?.guilds || 0}
+                  icon={<FaServer />}
+                />
+              </GridItem>
+              <GridItem>
+                <StatCard
+                  title="Uptime"
+                  value={status?.uptime ? formatUptime(status.uptime) : '0 dakika'}
+                  icon={<FaClock />}
+                />
+              </GridItem>
+              <GridItem>
+                <StatCard
+                  title="Durum"
+                  value={status?.status === 'online' ? '🟢 Çevrimiçi' : '🔴 Çevrimdışı'}
+                  icon={<FaCircle />}
+                />
+              </GridItem>
+            </Grid>
+          </VStack>
+        </Container>
+      </Box>
     </Box>
   )
 }
+
+const FeatureCard = ({ title, description, icon }: { title: string; description: string; icon: string }) => {
+  return (
+    <Box
+      p={8}
+      bg={useColorModeValue('white', 'gray.700')}
+      rounded="xl"
+      shadow="lg"
+      maxW="sm"
+      textAlign="center"
+    >
+      <Text fontSize="4xl" mb={4}>
+        {icon}
+      </Text>
+      <Heading size="md" mb={2}>
+        {title}
+      </Heading>
+      <Text color={useColorModeValue('gray.600', 'gray.400')}>{description}</Text>
+    </Box>
+  )
+}
+
+const StatCard = ({ title, value, icon }: { title: string; value: string | number; icon: React.ReactNode }) => {
+  return (
+    <Box textAlign="center" p={6}>
+      <Heading size="xl" mb={2} color="purple.400">
+        {value}
+      </Heading>
+      <HStack spacing={2} justify="center">
+        <Text fontSize="md" color={useColorModeValue('gray.600', 'gray.400')}>
+          {title}
+        </Text>
+        <Box color="purple.400">
+          {icon}
+        </Box>
+      </HStack>
+    </Box>
+  );
+};
 
 export default Home 

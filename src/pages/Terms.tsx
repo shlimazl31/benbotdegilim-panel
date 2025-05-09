@@ -1,70 +1,57 @@
-import { Box, Container, Heading, Text, VStack, Icon, useColorModeValue } from '@chakra-ui/react'
-import { FaGavel } from 'react-icons/fa'
+import { Box, Container, Heading, Text, VStack, useColorModeValue } from '@chakra-ui/react'
 
 const Terms = () => {
-  const bgColor = useColorModeValue('background', 'background')
-  const cardBg = useColorModeValue('surface', 'surface')
-  const textColor = useColorModeValue('text', 'text')
+  const textColor = useColorModeValue('gray.600', 'gray.400')
 
   return (
-    <Box minH="100vh" bg={bgColor} py={20}>
-      <Container maxW="4xl">
+    <Box minH="100vh" pt="80px" pb={20}>
+      <Container maxW="container.xl">
         <VStack spacing={8} align="stretch">
-          <Box textAlign="center" mb={8}>
-            <Icon as={FaGavel} w={16} h={16} color="brand.500" mb={4} />
-            <Heading 
-              size="2xl" 
-              bgGradient="linear(to-r, brand.400, brand.500)" 
-              bgClip="text"
-              fontWeight="extrabold"
-              pb={2}
-            >
-              KULLANIM ŞARTLARI
-            </Heading>
-            <Text color="muted" mt={4}>Son güncelleme: {new Date().toLocaleDateString('tr-TR')}</Text>
-          </Box>
+          <Heading as="h1" size="2xl" textAlign="center" mb={8}>
+            Kullanım Şartları
+          </Heading>
+          
+          <Text color={textColor}>
+            Son güncelleme: {new Date().toLocaleDateString('tr-TR')}
+          </Text>
 
-          <Box 
-            bg={cardBg} 
-            p={8} 
-            rounded="2xl" 
-            shadow="xl"
-            borderWidth="1px"
-            borderColor="brand.500"
-          >
-            <VStack spacing={6} align="stretch">
-              <Text color={textColor} fontSize="lg">
-                ShlimazlBot'u kullanarak, bu kullanım koşullarını kabul etmiş sayılırsınız. Bot, Discord platformu üzerinde çalışan bir hizmettir ve Discord'un kendi kullanım koşullarına tabidir.
+          <VStack spacing={6} align="stretch">
+            <Box>
+              <Heading as="h2" size="lg" mb={4}>
+                1. Genel Hükümler
+              </Heading>
+              <Text color={textColor}>
+                Shlimazlbot'u kullanarak bu şartları kabul etmiş sayılırsınız. Bot'u kullanmaya devam ettiğiniz sürece bu şartlara uymayı kabul etmiş olursunuz.
               </Text>
+            </Box>
 
-              <Box>
-                <Heading size="md" color="brand.500" mb={4}>1. Kullanım Kuralları</Heading>
-                <Text color={textColor}>
-                  Botu kullanırken aşağıdaki kurallara uymanız gerekmektedir:
-                </Text>
-                <VStack align="start" mt={4} spacing={2}>
-                  <Text color={textColor}>• Discord'un topluluk kurallarına uygun davranmak</Text>
-                  <Text color={textColor}>• Botu kötüye kullanmamak</Text>
-                  <Text color={textColor}>• Diğer kullanıcıların haklarına saygı göstermek</Text>
-                  <Text color={textColor}>• Botun güvenliğini tehlikeye atmamak</Text>
-                </VStack>
-              </Box>
+            <Box>
+              <Heading as="h2" size="lg" mb={4}>
+                2. Hizmet Kullanımı
+              </Heading>
+              <Text color={textColor}>
+                Bot'u kullanırken Discord'un kullanım şartlarına ve topluluk kurallarına uymayı kabul edersiniz. Bot'u kötüye kullanım, spam veya zararlı amaçlarla kullanmak yasaktır.
+              </Text>
+            </Box>
 
-              <Box>
-                <Heading size="md" color="brand.500" mb={4}>2. Sorumluluk Reddi</Heading>
-                <Text color={textColor}>
-                  Bot "olduğu gibi" sunulmaktadır ve herhangi bir garanti verilmemektedir. Botun kullanımından doğabilecek herhangi bir zarardan sorumlu değiliz.
-                </Text>
-              </Box>
+            <Box>
+              <Heading as="h2" size="lg" mb={4}>
+                3. Sorumluluk Reddi
+              </Heading>
+              <Text color={textColor}>
+                Bot "olduğu gibi" sunulmaktadır. Hizmetin kesintisiz veya hatasız olacağı garanti edilmez. Bot'un kullanımından doğabilecek herhangi bir zarardan sorumlu değiliz.
+              </Text>
+            </Box>
 
-              <Box>
-                <Heading size="md" color="brand.500" mb={4}>3. Değişiklikler</Heading>
-                <Text color={textColor}>
-                  Bu kullanım koşullarını herhangi bir zamanda değiştirme hakkını saklı tutarız. Değişiklikler web sitemizde yayınlandığı anda yürürlüğe girer.
-                </Text>
-              </Box>
-            </VStack>
-          </Box>
+            <Box>
+              <Heading as="h2" size="lg" mb={4}>
+                4. Değişiklikler
+              </Heading>
+              <Text color={textColor}>
+                Bu kullanım şartlarını herhangi bir zamanda değiştirme hakkımız saklıdır. Değişiklikler web sitemizde yayınlandığı anda yürürlüğe girer.
+              </Text>
+            </Box>
+          </VStack>
         </VStack>
       </Container>
     </Box>

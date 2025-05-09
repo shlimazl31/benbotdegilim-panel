@@ -1,31 +1,23 @@
 import { ChakraProvider, Box } from '@chakra-ui/react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-// import Navbar from './components/Navbar'
-import Footer from './components/Footer'
-import Home from './pages/Home'
-import Dashboard from './pages/Dashboard'
-import Login from './pages/Login'
-import Callback from './pages/Callback'
-import Terms from './pages/Terms'
-import Privacy from './pages/Privacy'
-import Invite from './pages/Invite'
 import theme from './theme'
+import Home from './pages/Home'
+import Commands from './pages/Commands'
+import Features from './pages/Features'
+import Navbar from './components/Navbar'
+import Footer from './components/Footer'
 
 function App() {
   return (
     <ChakraProvider theme={theme}>
       <Router>
-        <Box minH="100vh" bg="background" color="text">
-          {/* <Navbar /> */}
-          <Box as="main">
+        <Box minH="100vh" display="flex" flexDirection="column">
+          <Navbar />
+          <Box flex="1">
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/callback" element={<Callback />} />
-              <Route path="/terms" element={<Terms />} />
-              <Route path="/privacy" element={<Privacy />} />
-              <Route path="/invite" element={<Invite />} />
+              <Route path="/commands" element={<Commands />} />
+              <Route path="/features" element={<Features />} />
             </Routes>
           </Box>
           <Footer />
