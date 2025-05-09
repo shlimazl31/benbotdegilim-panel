@@ -46,7 +46,7 @@ export default function Navbar() {
             }}
           >
             <Image
-              src="/Shlimazlbot-logo.png"
+              src="/shlimazlbot-logo.png"
               alt="Shlimazlbot Logo"
               h="140px"
               objectFit="contain"

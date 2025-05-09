@@ -10,7 +10,7 @@ const Invite = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       window.location.href = 'https://discord.com/oauth2/authorize?client_id=562958427404632075&permissions=8&integration_type=0&scope=bot+applications.commands'
-    }, 1500)
+    }, 3000)
     return () => clearTimeout(timer)
   }, [])
 
