@@ -30,8 +30,7 @@ export const useBotStatus = () => {
             'Pragma': 'no-cache'
           },
           mode: 'cors',
-          credentials: 'omit',
-          signal: controller.signal
+          credentials: 'include'
         });
 
         clearTimeout(timeoutId);
