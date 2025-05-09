@@ -58,8 +58,9 @@ const Home = () => {
               colorScheme="purple"
               size="lg"
               as="a"
-              href="https://benbotdegilim.online/invite"
+              href="/invite"
               target="_blank"
+              rel="noopener noreferrer"
             >
               Botu Ekle
             </Button>

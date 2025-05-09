@@ -21,7 +21,7 @@ export const useBotStatus = () => {
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 saniye timeout
 
-        const response = await fetch('/api/api/bot/status', {
+        const response = await fetch('/api/bot/status', {
           method: 'GET',
           headers: {
             'Accept': 'application/json',
@@ -99,7 +99,7 @@ export const useBotStatus = () => {
     };
 
     fetchStatus();
-    // Her 30 saniyede bir güncelle (10 saniye yerine)
+    // Her 30 saniyede bir güncelle
     const interval = setInterval(fetchStatus, 30000);
 
     return () => clearInterval(interval);

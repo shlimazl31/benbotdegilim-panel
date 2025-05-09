@@ -1,70 +1,72 @@
-import { Box, Container, Heading, Text, VStack, useColorModeValue } from '@chakra-ui/react'
+import {
+  Box,
+  Container,
+  Heading,
+  Text,
+  VStack,
+  useColorModeValue,
+} from '@chakra-ui/react';
 
 const Privacy = () => {
-  const textColor = useColorModeValue('gray.600', 'gray.400')
+  const bgColor = useColorModeValue('gray.50', 'gray.900');
+  const textColor = useColorModeValue('gray.600', 'gray.400');
 
   return (
-    <Box minH="100vh" pt="80px" pb={20}>
+    <Box bg={bgColor} minH="100vh" py={20}>
       <Container maxW="container.xl">
-        <VStack spacing={8} align="stretch">
-          <Heading as="h1" size="2xl" textAlign="center" mb={8}>
-            Gizlilik Politikası
-          </Heading>
+        <VStack spacing={8} align="start">
+          <Heading>Gizlilik Politikası</Heading>
           
           <Text color={textColor}>
-            Son güncelleme: {new Date().toLocaleDateString('tr-TR')}
+            Bu gizlilik politikası, Shlimazlbot'un nasıl veri topladığını ve kullandığını açıklar.
           </Text>
 
-          <VStack spacing={6} align="stretch">
-            <Box>
-              <Heading as="h2" size="lg" mb={4}>
-                1. Veri Toplama
-              </Heading>
-              <Text color={textColor}>
-                Shlimazlbot, Discord sunucunuzda çalışırken sadece gerekli olan minimum veriyi toplar. Bu veriler sunucu ID'si, kanal ID'leri ve bot komutlarının kullanımı ile ilgili temel bilgilerdir.
-              </Text>
-            </Box>
+          <VStack spacing={4} align="start">
+            <Heading size="md">1. Toplanan Veriler</Heading>
+            <Text color={textColor}>
+              • Sunucu ID'si ve temel sunucu bilgileri<br />
+              • Bot kullanım istatistikleri<br />
+              • Komut kullanım verileri<br />
+              • Hata raporları ve performans metrikleri
+            </Text>
 
-            <Box>
-              <Heading as="h2" size="lg" mb={4}>
-                2. Veri Kullanımı
-              </Heading>
-              <Text color={textColor}>
-                Toplanan veriler sadece bot'un düzgün çalışması için kullanılır. Bu veriler üçüncü taraflarla paylaşılmaz ve ticari amaçlarla kullanılmaz.
-              </Text>
-            </Box>
+            <Heading size="md">2. Veri Kullanımı</Heading>
+            <Text color={textColor}>
+              • Toplanan veriler sadece bot'un işlevselliğini iyileştirmek için kullanılır<br />
+              • Sunucu yönetimi ve moderasyon özellikleri için gerekli veriler saklanır<br />
+              • Kullanıcı deneyimini geliştirmek için anonim istatistikler toplanır
+            </Text>
 
-            <Box>
-              <Heading as="h2" size="lg" mb={4}>
-                3. Veri Güvenliği
-              </Heading>
-              <Text color={textColor}>
-                Verilerinizin güvenliği bizim için önemlidir. Tüm veriler şifrelenmiş olarak saklanır ve güvenli sunucularda barındırılır.
-              </Text>
-            </Box>
+            <Heading size="md">3. Veri Güvenliği</Heading>
+            <Text color={textColor}>
+              • Tüm veriler güvenli sunucularda saklanır<br />
+              • Veriler şifrelenerek korunur<br />
+              • Düzenli güvenlik güncellemeleri yapılır
+            </Text>
 
-            <Box>
-              <Heading as="h2" size="lg" mb={4}>
-                4. Çerezler
-              </Heading>
-              <Text color={textColor}>
-                Web sitemizde çerez kullanılmamaktadır. Bot'un Discord üzerindeki kullanımı için herhangi bir çerez veya benzeri takip teknolojisi kullanılmaz.
-              </Text>
-            </Box>
+            <Heading size="md">4. Veri Paylaşımı</Heading>
+            <Text color={textColor}>
+              • Kullanıcı verileri üçüncü taraflarla paylaşılmaz<br />
+              • Yasal zorunluluklar dışında veri paylaşımı yapılmaz<br />
+              • Veriler sadece bot'un geliştirilmesi için kullanılır
+            </Text>
 
-            <Box>
-              <Heading as="h2" size="lg" mb={4}>
-                5. İletişim
-              </Heading>
-              <Text color={textColor}>
-                Gizlilik politikamız hakkında sorularınız için Discord sunucumuza katılabilir veya GitHub üzerinden bize ulaşabilirsiniz.
-              </Text>
-            </Box>
+            <Heading size="md">5. Kullanıcı Hakları</Heading>
+            <Text color={textColor}>
+              • Verilerinizin nasıl kullanıldığını öğrenme hakkına sahipsiniz<br />
+              • Verilerinizin silinmesini talep edebilirsiniz<br />
+              • Veri toplama işlemlerini reddedebilirsiniz
+            </Text>
+
+            <Heading size="md">6. İletişim</Heading>
+            <Text color={textColor}>
+              Gizlilik politikamız hakkında sorularınız için Discord sunucumuza katılabilir veya GitHub üzerinden iletişime geçebilirsiniz.
+            </Text>
           </VStack>
         </VStack>
       </Container>
     </Box>
-  )
-}
+  );
+};
 
-export default Privacy 
+export default Privacy; 
