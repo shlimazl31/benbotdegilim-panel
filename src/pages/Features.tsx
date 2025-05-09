@@ -12,7 +12,7 @@ import {
   ListIcon,
   Badge,
 } from '@chakra-ui/react';
-import { FaMusic, FaListUl, FaCog, FaFilm, FaHeadphones, FaShieldAlt, FaSearch, FaCheckCircle, FaYoutube, FaSpotify } from 'react-icons/fa';
+import { FaMusic, FaListUl, FaCog, FaFilm, FaHeadphones, FaShieldAlt, FaCheckCircle, FaYoutube, FaSpotify } from 'react-icons/fa';
 
 const features = [
   {

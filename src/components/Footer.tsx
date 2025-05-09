@@ -5,7 +5,6 @@ import {
   Text,
   useColorModeValue,
   Link,
-  Flex,
   Grid,
   GridItem,
 } from '@chakra-ui/react';
