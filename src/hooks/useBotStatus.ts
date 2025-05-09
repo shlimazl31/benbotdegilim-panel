@@ -21,7 +21,7 @@ export const useBotStatus = () => {
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 saniye timeout
 
-        const response = await fetch('/api/bot/status', {
+        const response = await fetch('https://benbotdegilimbotu-production.up.railway.app/api/bot/status', {
           method: 'GET',
           headers: {
             'Accept': 'application/json',
