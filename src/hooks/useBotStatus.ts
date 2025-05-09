@@ -25,12 +25,11 @@ export const useBotStatus = () => {
           method: 'GET',
           headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            'Cache-Control': 'no-cache',
-            'Pragma': 'no-cache'
+            'Content-Type': 'application/json'
           },
           mode: 'cors',
-          credentials: 'include'
+          credentials: 'include',
+          cache: 'no-cache'
         });
 
         clearTimeout(timeoutId);
