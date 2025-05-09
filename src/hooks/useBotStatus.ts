@@ -23,13 +23,10 @@ export const useBotStatus = () => {
 
         const response = await fetch('https://benbotdegilimbotu-production.up.railway.app/api/bot/status', {
           method: 'GET',
-          headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-          },
-          mode: 'cors',
           credentials: 'include',
-          cache: 'no-cache'
+          headers: {
+            'Content-Type': 'application/json'
+          }
         });
 
         clearTimeout(timeoutId);
