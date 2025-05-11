@@ -21,7 +21,7 @@ export const useBotStatus = () => {
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 saniye timeout
 
-        const response = await fetch('http://173.212.247.209:3000/api/bot/status', {
+        const response = await fetch('https://173.212.247.209:3000/api/bot/status', {
           method: 'GET',
           credentials: 'include',
           headers: {
