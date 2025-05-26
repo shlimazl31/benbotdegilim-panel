@@ -21,20 +21,20 @@ const Home = () => {
 
   console.log('Home sayfası status:', status)
 
-  const formatUptime = (uptime: number) => {
-    const seconds = Math.floor(uptime / 1000)
+  const formatUptime = (uptimeInSeconds: number) => {
+    const seconds = Math.floor(uptimeInSeconds);
 
-    const days = Math.floor(seconds / (24 * 60 * 60))
-    const hours = Math.floor((seconds % (24 * 60 * 60)) / (60 * 60))
-    const minutes = Math.floor((seconds % (60 * 60)) / 60)
-    
-    const parts = []
-    if (days > 0) parts.push(`${days} gün`)
-    if (hours > 0) parts.push(`${hours} saat`)
-    if (minutes > 0) parts.push(`${minutes} dakika`)
-    
-    return parts.join(' ') || '0 dakika'
-  }
+    const days = Math.floor(seconds / (24 * 60 * 60));
+    const hours = Math.floor((seconds % (24 * 60 * 60)) / (60 * 60));
+    const minutes = Math.floor((seconds % (60 * 60)) / 60);
+
+    const parts = [];
+    if (days > 0) parts.push(`${days} gün`);
+    if (hours > 0) parts.push(`${hours} saat`);
+    if (minutes > 0) parts.push(`${minutes} dakika`);
+
+    return parts.join(' ') || '0 dakika';
+  };
 
   return (
     <Box bg={bgColor} minH="100vh" pt="80px">
