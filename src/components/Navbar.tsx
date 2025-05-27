@@ -16,7 +16,7 @@ export default function Navbar() {
   const { colorMode, toggleColorMode } = useColorMode();
   const bg = useColorModeValue('rgba(255, 255, 255, 0.8)', 'rgba(26, 32, 44, 0.8)');
   const borderColor = useColorModeValue('gray.200', 'gray.700');
-  const textColor = useColorModeValue('white', 'white');
+  const textColor = useColorModeValue('gray.800', 'white');
 
   return (
     <Box
