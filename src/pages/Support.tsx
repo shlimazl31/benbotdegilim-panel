@@ -4,7 +4,6 @@ import {
   VStack,
   Text,
   Heading,
-  Button,
   useColorModeValue,
   Spinner,
 } from '@chakra-ui/react'
